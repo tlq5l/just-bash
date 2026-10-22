@@ -1,8 +1,9 @@
 /**
- * The CJS entry point has no runtime coverage: the suite runs against the
- * source tree, so anything that only breaks under `--format=cjs` ships
- * unnoticed. This loads `dist/bundle/index.cjs` in a child process, the way a
- * `require("just-bash")` consumer does.
+ * The `just-bash CJS bundle` block in `src/cli/just-bash.bundle.test.ts` only
+ * runs `echo`, and the suite otherwise runs against the source tree, so a
+ * command that breaks only under `--format=cjs` (like sqlite3's worker lookup)
+ * goes unnoticed. This loads `dist/bundle/index.cjs` in a child process, the
+ * way a `require("just-bash")` consumer does.
  */
 
 import { execFile } from "node:child_process";
