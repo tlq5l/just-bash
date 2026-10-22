@@ -1,9 +1,9 @@
 /**
  * The `just-bash CJS bundle` block in `src/cli/just-bash.bundle.test.ts` only
- * runs `echo`, and the suite otherwise runs against the source tree, so a
- * command that breaks only under `--format=cjs` (like sqlite3's worker lookup)
- * goes unnoticed. This loads `dist/bundle/index.cjs` in a child process, the
- * way a `require("just-bash")` consumer does.
+ * runs `echo`, and no other test loads `dist/bundle/index.cjs`, so a command
+ * that breaks only under `--format=cjs` (like sqlite3's worker lookup) goes
+ * unnoticed. This loads `dist/bundle/index.cjs` in a child process, the way a
+ * `require("just-bash")` consumer does.
  */
 
 import { execFile } from "node:child_process";
